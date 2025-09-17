@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráficos</title>
+  <link rel="stylesheet" href="graficos.css">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+
+
+
+   <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: transparent;
+        }
+
+        #partelateral {
+            background-color: #d9e4f5;
+            width: 25%;
+            height: 1000px;
+            float: left;
+
+        }
+
+        #menu {
+            background-color: #FAFAFA;
+            width: 100%;
+            height: 1000px;
+            float: right;
+           
+        }
+       
+
+        #pesquisar {
+            width: 71vw;
+            margin: 30px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            padding-left: 40px;
+
+        }
+
+        #logo {
+            width: 14vw;
+            display: flex;
+            margin-left: 2.5vw;
+            position: relative;
+
+        }
+
+        .home {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            background-color: #d9e4f5;
+            margin-left: 15%;
+            margin-right: 15%;
+            border-radius: 13px;
+            color: #111;
+            transition: background-color 0.2s ease-in-out;
+            padding: 1px 30px 1px 30px;
+            font-size: smaller;
+            margin-bottom: 5px;
+
+
+        }
+
+        .home:hover {
+            background-color: #72a5e7;
+            color: #FAFAFA;
+            transform: transition 0.2s ease-in-out;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .informacoes {
+            background-color: #FFFF;
+            height: 200px;
+            width: 25%;
+            margin-left: 30px;
+            border-radius: 7px;
+            text-align: center;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            display: inline-block;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .informacoes:hover{
+            transform: scale(1.05); 
+        }
+
+        .informacoes2 {
+            background-color: #FFFF;
+            height: 200px;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            width: 39%;
+            margin-left: 2vw;
+            margin-top: 2vw;
+            border-radius: 7px;
+            display: inline-block;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: transform 0.3s ease;
+
+        }
+
+        .informacoes2:hover{
+             transform: scale(1.05); 
+        }
+
+        #search {
+            height: 15px;
+            color: #888;
+            position: absolute;
+            bottom: 92.2vh;
+            left: 24.9vw;
+
+
+        }
+        #pesquisar {
+  width: 70%;
+  padding: 12px 20px 12px 40px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 5px 5px #F0F4FA;
+  font-size: 16px;
+}
+
+        .titulos {
+            transition: color 0.2s ease-in-out;
+        }
+
+        .titulos:hover {
+            transform: transition 0.2s ease-in-out;
+        }
+
+        .home img {
+            height: 20px;
+            padding-right: 7px;
+            position: relative;
+            top: 2px;
+            transition: filter 0.2s ease-in-out;
+        }
+
+        .home:hover img {
+            filter: invert(100%);
+            transform: transition 0.2s ease-in-out;
+
+        }
+
+        #divprincipal {
+
+            border: 2px solid;
+            height: 500px;
+
+        }
+
+        
+    </style>
+
+</head>
+<body align="center">
+
+
+        <div id="partelateral">
+           <a href="telainicial.html"><img id="logo" src="img/logo.png"></a>
+
+            <a href="telainicial.html">
+                <div class="home">
+                    <h2 class="titulos" style="font-weight: 400;"><img src="img/house-chimney.png">Home</h2>
+                </div>
+            </a>
+
+            <a href="calendario.html">
+                <div class="home" id="calendario">
+                    <h2 style="font-weight: 400;"><img src="img/calendar-day.png">Calendário</h2>
+                </div>
+            </a>
+
+            <a href="estoque.html">
+                <div class="home" id="estoque">
+                    <h2 style="font-weight: 400;"><img src="img/warehouse-alt.png">Estoque</h2>
+                </div>
+            </a>
+
+            <a href="perfil.html">
+                <div class="home" id="estudantes">
+                    <h2 style="font-weight: 400;"><img src="img/student.png">ADM</h2>
+                </div>
+            </a>
+
+            <a href="graficos.html">
+                <div class="home" id="graficos">
+                    <h2 style="font-weight: 400;"><img src="img/dashboard-monitor.png">Gráficos</h2>
+                </div>
+            </a>
+
+        </div>
+
+
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div id="menu">
+    <h1>
+      
+      
+    </h1>
+
+    <h2 class="titulo">Gráficos</h2>
+
+    <!-- CONTAINER FLEX PARA GRÁFICOS -->
+    <div class="graficos-container">
+
+      <!-- GRÁFICO 1 -->
+      <div class="grafico-box">
+        <h2 class="titulo-grafico">Gráfico de Desperdício</h2>
+        <div class="grafico-container">
+          <div class="pieBackground"></div>
+          <div id="slice1" class="hold">
+            <div class="pie"></div>
+          </div>
+          <div id="slice2" class="hold">
+            <div class="pie"></div>
+          </div>
+        </div>
+        <div class="legend">
+          <div><span class="cor azul"></span>Desperdício: 25%</div>
+          <div><span class="cor azul-escuro"></span>Consumo: 75%</div>
+        </div>
+      </div>
+
+      <!-- GRÁFICO 2 -->
+      <div class="grafico-box">
+        <h2 class="titulo-grafico">Gráfico de Faltas</h2>
+        <div class="grafico-container">
+          <div class="pieBackground2"></div>
+          <div id="slice1-2" class="hold2">
+            <div class="pie2"></div>
+          </div>
+          <div id="slice2-2" class="hold2">
+            <div class="pie2"></div>
+          </div>
+        </div>
+        <div class="legend">
+          <div><span class="cor azul2"></span>Presenças: 75%</div>
+          <div><span class="cor azul-escuro2"></span>Faltas: 25%</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+
+body{
+    background-color: #bbcbe1;    
+    
+}
+
+.div{
+    background-color: #cfddef;
+    width: 80%;
+    margin-left: 80px;
+    height: 850px ;
+    margin-top: 50px;
+    margin-left: 200px; 
+    border-radius: 20px;
+
+   
+}
+
+.input{
+
+    margin-bottom: 30px;
+    border-radius: 15px;
+    padding: 13px;
+    border-color: #cfddef;
+    box-shadow: 3px 3px 3px #cfddef ;
+    width: 40vw;
+
+
+}
+
+.put{
+    border-radius: 15px;
+    padding: 13px;
+    border-color: #cfddef;
+    box-shadow: 3px 3px 3px #cfddef ;
+    margin-bottom: 30px;
+    width: 40vw;
+}
+
+.butao{
+    background-color: #6c90d8;
+    color: #ffff;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 3px 3px 3px #6291cf;
+    border-color: #cfddef;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+    font-size: large;
+}
+
+.butao:hover{
+    transform: scale(1.05); 
+}
+
+.logo{
+    width: 200px;
+    
+}
+.barriecito-regular {
+    font-family: "Barriecito", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1{
+    color: #ffff;
+    text-shadow: 3px ;
+}
+
+a{
+    text-decoration: none;
+    color: #ffff;
+}
+
+.link{
+    margin-top: 20px;
+    color: #6291cf;
+}
+

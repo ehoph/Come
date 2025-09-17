@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cadastro.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <title>Login</title>
+</head>
+<body align="center">
+    <div class="div">
+        <img src="img/logo.png" alt="" class="logo">
+        <h1 align="center">Login</h1>
+        <div align="center">
+            <input type="email" id="emailLogin" placeholder="E-mail" class="input" required> <br>
+            <input type="text" id="raLogin" placeholder="RA" class="input" required> <br>
+        </div>
+       
+        <!-- Botão "Entrar" que irá validar o login -->
+        <button class="butao" id="entrarLoginBtn">Entrar</button>
+        <br><br>
+        <a href="index.html" class="link">Não tem cadastro?</a>
+    </div>
+
+    <script>
+        // Ação do botão "Entrar" no login
+        document.getElementById('entrarLoginBtn').addEventListener('click', function() {
+            // Pega os dados do login
+            const emailLogin = document.getElementById('emailLogin').value;
+            const raLogin = document.getElementById('raLogin').value;
+
+            // Verifica se os campos não estão vazios
+            if (!emailLogin || !raLogin) {
+                alert("Por favor, preencha os campos de E-mail e RA.");
+                return;
+            }
+
+            // Verifica se os dados existem no LocalStorage
+            const storedEmail = localStorage.getItem('email');
+            const storedRA = localStorage.getItem('ra');
+
+            if (emailLogin === storedEmail && raLogin === storedRA) {
+                // Se o login for bem-sucedido, redireciona para a telainicial.html
+                window.location.href = 'telainicial.html'; // Alterado para telainicial.html
+            } else {
+                // Se o login falhar
+                alert('E-mail ou RA inválidos. Tente novamente.');
+            }
+        });
+    </script>
+</body>
+</html>

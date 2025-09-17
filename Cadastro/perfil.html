@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: transparent;
+        }
+
+        #partelateral {
+            background-color: #d9e4f5;
+            width: 25%;
+            height: 1000px;
+            float: left;
+        }
+
+        #menu {
+            display: grid;
+            grid-template-columns: 1fr; /* apenas 1 coluna */
+            grid-template-rows: auto auto; /* duas linhas, automáticas */
+            gap: 20px; /* espaçamento entre elas */
+            background-color: #FAFAFA;
+            width: 100%;
+            min-height: 100vh;
+            padding: px;
+            box-sizing: border-box;
+        }
+
+        #pesquisar {
+            width: 71vw;
+            margin: 30px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            padding-left: 40px;
+        }
+
+        #logo {
+            width: 14vw;
+            display: flex;
+            margin-left: 2.5vw;
+            position: relative;
+        }
+
+        .home {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            background-color: #d9e4f5;
+            margin-left: 15%;
+            margin-right: 15%;
+            border-radius: 13px;
+            color: #111;
+            transition: background-color 0.2s ease-in-out;
+            padding: 1px 30px 1px 30px;
+            font-size: smaller;
+            margin-bottom: 5px;
+        }
+
+        .home:hover {
+            background-color: #72a5e7;
+            color: #FAFAFA;
+            transform: transition 0.2s ease-in-out;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .informacoes {
+            background-color: #FFFF;
+            height: 300px;
+            width: 100%;
+            margin-left: 30px;
+            border-radius: 7px;
+            text-align: center;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            display: inline-block;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+       
+
+        .informacoes2 {
+            text-align: center;
+            grid-column: 1 / span 2;
+            background-color: #FFFF;
+            height: 400px;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            width: 100%;
+            margin-left: 2vw;
+            margin-top: 2vw;
+            border-radius: 7px;
+            display: inline-block;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+       
+
+        #search {
+            height: 15px;
+            color: #888;
+            position: absolute;
+            bottom: 92.2vh;
+            left: 24.9vw;
+        }
+
+        .titulos {
+            transition: color 0.2s ease-in-out;
+        }
+
+        .titulos:hover {
+            transform: transition 0.2s ease-in-out;
+        }
+
+        .home img {
+            height: 20px;
+            padding-right: 7px;
+            position: relative;
+            top: 2px;
+            transition: filter 0.2s ease-in-out;
+        }
+
+        .home:hover img {
+            filter: invert(100%);
+            transform: transition 0.2s ease-in-out;
+        }
+
+        #divprincipal {
+            border: 2px solid;
+            height: 500px;
+        }
+
+        .img {
+            width: 20rem;
+            height: 20rem;
+        }
+
+        .foto-pf {
+            width: 10rem;
+            height: 10rem;
+            transition: transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .foto-pf:hover{
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body aling="center">
+    <div id="partelateral">
+        <a href="telainicial.html"><img id="logo" src="img/logo.png"></a>
+
+        <a href="telainicial.html">
+            <div class="home">
+                <h2 class="titulos" style="font-weight: 400;"><img src="img/house-chimney.png">Home</h2>
+            </div>
+        </a>
+
+        <a href="calendario.html">
+            <div class="home" id="calendario">
+                <h2 style="font-weight: 400;"><img src="img/calendar-day.png">Calendário</h2>
+            </div>
+        </a>
+
+        <a href="estoque.html">
+            <div class="home" id="estoque">
+                <h2 style="font-weight: 400;"><img src="img/warehouse-alt.png">Estoque</h2>
+            </div>
+        </a>
+
+        <a href="estudantes.html">
+            <div class="home" id="estudantes">
+                <h2 style="font-weight: 400;"><img src="img/student.png">ADM</h2>
+            </div>
+        </a>
+
+        <a href="graficos.html">
+            <div class="home" id="graficos">
+                <h2 style="font-weight: 400;"><img src="img/dashboard-monitor.png">Gráficos</h2>
+            </div>
+        </a>
+    </div>
+
+    <div id="menu">
+        <div class="informacoes2">
+            <div>
+                <!-- Foto de perfil clicável para trocar a imagem -->
+                <img id="profile-pic" class="foto-pf" src="img/do-utilizador.png" alt="Foto de perfil" style="cursor:pointer;">
+            </div>
+            <h4 style="font-weight: 550; color: #111;">Nome: <span id="nomePerfil">Não informado</span></h4>
+            <h4 style="font-weight: 550; color: #111;">E-mail: <span id="emailPerfil">Não informado</span></h4>
+            <h4 style="font-weight: 550; color: #111;">Telefone: <span id="telefonePerfil">Não informado</span></h4>
+            <h4 style="font-weight: 550; color: #111;">RA: <span id="raPerfil">Não informado</span></h4>
+        </div>
+
+       
+    </div>
+
+    <!-- Input file escondido para upload -->
+    <input type="file" id="file-input" accept="image/*" style="display:none;">
+
+    <!-- Ícone para adicionar/alterar foto de perfil -->
+    <div id="upload-icon" style="cursor: pointer; text-align: center; margin-top: 10px;">
+        <span title="Adicionar/Alterar Foto"></span> <!-- Câmera emoji -->
+    </div>
+
+    <script>
+        // Carrega as informações do usuário no perfil
+        window.onload = function () {
+            const nome = localStorage.getItem('nome');
+            const email = localStorage.getItem('email');
+            const telefone = localStorage.getItem('telefone');
+            const ra = localStorage.getItem('ra');  // RA é puxado do localStorage
+
+            // Preenche os dados na tela de perfil
+            document.getElementById('nomePerfil').textContent = nome || 'Não informado';
+            document.getElementById('emailPerfil').textContent = email || 'Não informado';
+            document.getElementById('telefonePerfil').textContent = telefone || 'Não informado';
+            document.getElementById('raPerfil').textContent = ra || 'Não informado';  // Aqui é exibido o RA
+        };
+
+        // Ação para trocar a foto de perfil
+        document.getElementById('upload-icon').addEventListener('click', function () {
+            // Aciona o clique do input file
+            document.getElementById('file-input').click();
+        });
+
+        document.getElementById('file-input').addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profile-pic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Permite que o usuário clique diretamente na foto para trocá-la
+        document.getElementById('profile-pic').addEventListener('click', function () {
+            document.getElementById('file-input').click();
+        });
+    </script>
+</body>
+
+</html>

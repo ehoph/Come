@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cadastro.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+    <title>Cadastro</title>
+</head>
+<body align="center">
+    <div class="div">
+        <img src="img/logo.png" alt="" class="logo">
+        <h1 align="center">Cadastro</h1>
+        <div align="center">
+            <input type="text" id="nome" placeholder="Digite seu Nome" class="input" required> <br>
+            <input type="text" id="telefone" placeholder="Telefone" class="input" required> <br>
+            <input type="text" id="dataNascimento" placeholder="Data de nascimento" class="input" required> <br>
+            <input type="text" id="ra" placeholder="RA" class="input" required> <br>
+            <input type="email" id="email" placeholder="E-mail" class="input" required> <br>
+        </div>
+       
+       <!-- Botão "Entrar" que vai salvar os dados e redirecionar para telainicial.html -->
+       <button class="butao" id="entrarBtn">Entrar</button>
+        <br><br>
+        <a href="login.html" class="link">Já tem cadastro?</a>
+    </div>
+
+    <script>
+        // Ação do botão "Entrar"
+        document.getElementById('entrarBtn').addEventListener('click', function() {
+            // Pega os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const dataNascimento = document.getElementById('dataNascimento').value;
+            const ra = document.getElementById('ra').value;
+            const email = document.getElementById('email').value;
+
+            // Verifica se todos os campos foram preenchidos
+            if (!nome || !telefone || !dataNascimento || !ra || !email) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // Armazena os dados no LocalStorage
+            localStorage.setItem('nome', nome);
+            localStorage.setItem('telefone', telefone);
+            localStorage.setItem('dataNascimento', dataNascimento);
+            localStorage.setItem('ra', ra);
+            localStorage.setItem('email', email);
+
+            // Redireciona para a telainicial.html
+            window.location.href = 'login.html';  // Alterado para telainicial.html
+        });
+    </script>
+</body>
+</html>
+

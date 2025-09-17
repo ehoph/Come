@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <title>Estoque</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: transparent;
+        }
+
+        #partelateral {
+            background-color: #d9e4f5;
+            width: 25%;
+            height: 1000px;
+            float: left;
+
+        }
+
+        #menu {
+            background-color: #FAFAFA;
+            width: 100%;
+            height: 1000px;
+            float: right;
+            
+        }
+        
+
+        #pesquisar {
+            width: 71vw;
+            margin: 30px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px;
+            box-shadow: 3px 5px 5px #cfddef;
+            padding-left: 40px;
+
+        }
+
+        #logo {
+            width: 14vw;
+            display: flex;
+            margin-left: 2.5vw;
+            position: relative;
+
+        }
+
+        .home {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            background-color: #d9e4f5;
+            margin-left: 15%;
+            margin-right: 15%;
+            border-radius: 13px;
+            color: #111;
+            transition: background-color 0.2s ease-in-out;
+            padding: 1px 30px 1px 30px;
+            font-size: smaller;
+            margin-bottom: 5px;
+
+
+        }
+
+        .home:hover {
+            background-color: #72a5e7;
+            color: #FAFAFA;
+            transform: transition 0.2s ease-in-out;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .informacoes {
+            background-color: #FFFF;
+            height: 200px;
+            width: 25%;
+            margin-left: 30px;
+            border-radius: 7px;
+            text-align: center;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            display: inline-block;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .informacoes:hover{
+            transform: scale(1.05); 
+        }
+
+        .informacoes2 {
+            background-color: #FFFF;
+            height: 200px;
+            box-shadow: 3px 5px 5px #F0F4FA;
+            width: 39%;
+            margin-left: 2vw;
+            margin-top: 2vw;
+            border-radius: 7px;
+            display: inline-block;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: transform 0.3s ease;
+
+        }
+
+        .informacoes2:hover{
+            transform: scale(1.05); 
+        }
+
+        #search {
+            height: 15px;
+            color: #888;
+            position: absolute;
+            bottom: 92.2vh;
+            left: 24.9vw;
+
+
+        }
+
+        .titulos {
+            transition: color 0.2s ease-in-out;
+        }
+
+        .titulos:hover {
+            transform: transition 0.2s ease-in-out;
+        }
+
+        .home img {
+            height: 20px;
+            padding-right: 7px;
+            position: relative;
+            top: 2px;
+            transition: filter 0.2s ease-in-out;
+        }
+
+        .home:hover img {
+            filter: invert(100%);
+            transform: transition 0.2s ease-in-out;
+
+        }
+
+        #divprincipal {
+
+            border: 2px solid;
+            height: 500px;
+
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+            flex-grow: 1;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .card.full-height {
+            grid-column: span 2;
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #555;
+        }
+
+        .card-content {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* NOVO: Centraliza horizontalmente */
+        }
+
+        .card .icon {
+            margin-bottom: 10px;
+        }
+
+        .percentage-chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-container {
+            width: 150px;
+            height: 150px;
+            background: conic-gradient(#4a90e2 0% 25%, #75bbfd 25% 100%);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .chart-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .chart-legend {
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .chart-legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .color-box {
+            width: 15px;
+            height: 15px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        /* Cores baseadas na imagem */
+        .color-blue { background-color: #4a90e2; }
+        .color-dark-blue { background-color: #75bbfd; }
+
+        /* Estilos para a seção de Atualização de Estoque */
+        .stock-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            align-items: center;
+        }
+
+        .stock-input, .stock-button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .stock-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+        .stock-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
+
+        .stock-button:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+        }
+
+        .stock-actions {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .action-button {
+            flex-grow: 1;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .entry-button {
+            background-color: #6c90d8;
+            color: #fff;
+            border-color: #7195dd;
+            box-shadow: 4px 4px 4px;
+        }
+
+        .exit-button {
+            background-color: #dc3545;
+            color: #fff;
+            border-color: #dc3545;
+        }
+
+        .home-img{
+            width: 30px; /* Ajustado para um tamanho razoável */
+            margin-bottom: 10px;
+            /* As propriedades de posicionamento e margem-left foram removidas, pois o flexbox irá centralizar */
+        }
+        
+        /* NOVO: Estilos para o botão e a lista de produtos */
+        #show-list-button {
+            background-color: #6c90d8;
+            color: #fff;
+            border: none;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            font-size: 1em;
+            font-weight: 600;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        #show-list-button:hover {
+            background-color: #6c90d8;
+        }
+        
+        .product-list {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f4f9;
+            border-radius: 8px;
+            text-align: left;
+            max-height: 250px;
+            overflow-y: auto;
+            font-size: 0.9em;
+            color: #333;
+        }
+        
+        .product-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .product-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #d9e4f5;
+        }
+        
+        .product-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body align="center">
+
+    <div id="partelateral">
+        <a href="telainicial.html"><img id="logo" src="img/logo.png" alt="Logo"></a>
+
+        <a href="telainicial.html">
+            <div class="home">
+                <h2 class="titulos" style="font-weight: 400;"><img src="img/house-chimney.png" alt="Home Icon">Home</h2>
+            </div>
+        </a>
+
+        <a href="calendario.html">
+            <div class="home" id="calendario">
+                <h2 style="font-weight: 400;"><img src="img/calendar-day.png" alt="Calendário Icon">Calendário</h2>
+            </div>
+        </a>
+
+        <a href="estoque.html">
+            <div class="home" id="estoque">
+                <h2 style="font-weight: 400;"><img src="img/warehouse-alt.png" alt="Estoque Icon">Estoque</h2>
+            </div>
+        </a>
+
+        <a href="perfil.html">
+            <div class="home" id="estudantes">
+                <h2 style="font-weight: 400;"><img src="img/student.png" alt="ADM Icon">ADM</h2>
+            </div>
+        </a>
+
+        <a href="graficos.html">
+            <div class="home" id="graficos">
+                <h2 style="font-weight: 400;"><img src="img/dashboard-monitor.png" alt="Gráficos Icon">Gráficos</h2>
+            </div>
+        </a>
+    </div>
+
+    <div id="menu">
+        <h1><img id="search" src="img/search.png" alt="Search Icon"><input type="search" id="pesquisar" placeholder="Pesquisar..."></h1>
+
+        <h2 style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 600; text-align: left; margin-left: 8.2vw;">Estoque</h2><br>
+
+        <section class="dashboard-grid">
+            <div class="card full-height">
+                <h3>Atualização de Estoque</h3>
+                <div class="card-content">
+                    <form id="stock-form" style="display: contents;">
+                        <div class="stock-form">
+                            <input type="text" id="product-name" placeholder="Nome do produto" class="stock-input" required>
+                            <input type="number" id="product-quantity" placeholder="Quantidade" class="stock-input" required min="1">
+                            <div class="stock-actions">
+                                <button type="button" class="action-button entry-button">Entrada</button>
+                                <button type="button" class="action-button exit-button">Saída</button>
+                            </div>
+                            <button type="button" id="show-list-button" class="action-button">Mostrar Estoque</button>
+                        </div>
+                    </form>
+                    <div id="product-list-container" class="product-list" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Inventário Atual</h3>
+                <div class="card-content">
+                    <img src="img/caixa-alt.png" alt="Ícone de caixa" class="home-img">
+                    <span id="stock-count">0</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Capacidade Máxima</h3>
+                <div class="percentage-chart">
+                    <div class="chart-container"></div>
+                    <div class="chart-legend">
+                        <div class="chart-legend-item">
+                            <span class="color-box color-blue"></span>
+                            <span>Ocupado</span>
+                        </div>
+                        <div class="chart-legend-item">
+                            <span class="color-box color-dark-blue"></span>
+                            <span>Disponível</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let estoque = 0;
+        const capacidadeMaxima = 2000;
+        let produtos = {};
+
+        const nomeInput = document.getElementById('product-name');
+        const quantidadeInput = document.getElementById('product-quantity');
+        const entryBtn = document.querySelector('.entry-button');
+        const exitBtn = document.querySelector('.exit-button');
+        const stockCount = document.getElementById('stock-count');
+        const chart = document.querySelector('.chart-container');
+        const stockForm = document.getElementById('stock-form');
+        const showListBtn = document.getElementById('show-list-button');
+        const productListContainer = document.getElementById('product-list-container');
+
+        function atualizarInventario() {
+            stockCount.textContent = estoque;
+            let porcentagem = (estoque / capacidadeMaxima) * 100;
+            if (porcentagem > 100) porcentagem = 100;
+            chart.style.background = `conic-gradient(#4a90e2 0% ${porcentagem}%, #75bbfd ${porcentagem}% 100%)`;
+        }
+        
+        function renderProductList() {
+            let listHTML = '<h4>Produtos em Estoque:</h4>';
+            listHTML += '<ul>';
+            const productNames = Object.keys(produtos).sort();
+            
+            if (productNames.length === 0) {
+                listHTML += '<li>Nenhum produto cadastrado.</li>';
+            } else {
+                for (const nome of productNames) {
+                    listHTML += `<li>${nome}: ${produtos[nome]} unidade(s)</li>`;
+                }
+            }
+            
+            listHTML += '</ul>';
+            productListContainer.innerHTML = listHTML;
+        }
+
+        function toggleProductList() {
+            if (productListContainer.style.display === 'none') {
+                renderProductList();
+                productListContainer.style.display = 'block';
+                showListBtn.textContent = 'Ocultar Estoque';
+            } else {
+                productListContainer.style.display = 'none';
+                showListBtn.textContent = 'Mostrar Estoque';
+            }
+        }
+
+        entryBtn.addEventListener('click', () => {
+            const nome = nomeInput.value.trim();
+            const quantidade = Number(quantidadeInput.value);
+
+            if (nome === '' || quantidade <= 0) {
+                alert('Por favor, preencha o nome e a quantidade do produto.');
+                return;
+            }
+
+            if (produtos[nome]) {
+                produtos[nome] += quantidade;
+            } else {
+                produtos[nome] = quantidade;
+            }
+
+            estoque += quantidade;
+            if (estoque > capacidadeMaxima) {
+                alert('Atenção: Atingiu a capacidade máxima do estoque!');
+                estoque = capacidadeMaxima;
+            }
+            
+            atualizarInventario();
+            stockForm.reset();
+        });
+
+        exitBtn.addEventListener('click', () => {
+            const nome = nomeInput.value.trim();
+            const quantidade = Number(quantidadeInput.value);
+
+            if (nome === '' || quantidade <= 0) {
+                alert('Por favor, preencha o nome e a quantidade do produto.');
+                return;
+            }
+
+            if (!produtos[nome] || produtos[nome] < quantidade) {
+                alert(`Não há produtos suficientes de "${nome}" no estoque!`);
+                return;
+            }
+            
+            produtos[nome] -= quantidade;
+            if (produtos[nome] === 0) {
+                delete produtos[nome];
+            }
+
+            estoque -= quantidade;
+            atualizarInventario();
+            stockForm.reset();
+        });
+
+        showListBtn.addEventListener('click', toggleProductList);
+
+        atualizarInventario();
+    </script>
+</body>
+
+</html>

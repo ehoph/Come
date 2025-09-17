@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" a href="a.css">
+    <link rel="shortcut icon" type="image/x-icon" href="logo.png"
+    
+
+<body align="center">
+
+
+        <div id="partelateral">
+           <a href="telainicial.html"><img id="logo" src="img/logo.png"></a>
+
+            <a href="telainicial.html">
+                <div class="home">
+                    <h2 class="titulos" style="font-weight: 400;"><img src="img/house-chimney.png">Home</h2>
+                </div>
+            </a>
+
+            <a href="calendario.html">
+                <div class="home" id="calendario">
+                    <h2 style="font-weight: 400;"><img src="img/calendar-day.png">Calendário</h2>
+                </div>
+            </a>
+
+            <a href="estoque.html">
+                <div class="home" id="estoque">
+                    <h2 style="font-weight: 400;"><img src="img/warehouse-alt.png">Estoque</h2>
+                </div>
+            </a>
+
+            <a href="perfil.html">
+                <div class="home" id="adm">
+                    <h2 style="font-weight: 400;"><img src="img/student.png">ADM</h2>
+                </div>
+            </a>
+
+            <a href="graficos.html">
+                <div class="home" id="graficos">
+                    <h2 style="font-weight: 400;"><img src="img/dashboard-monitor.png">Gráficos</h2>
+                </div>
+            </a>
+        </div>
+
+        <div class="cal">
+        <div class="cal-becalho" id="mes-ano">
+            Mês
+        </div>
+        <table> 
+            <thead>
+                <tr>
+            <th>DOM</th>
+            <th>SEG</th>
+            <th>TER</th>
+            <th>QUA</th>
+            <th>QUI</th>
+            <th>SEX</th>
+            <th>SÁB</th>
+                </tr>
+            </thead>
+
+            
+            <tbody id="cal-dia">
+                <!--usa o javascript pros dia-->
+
+            </tbody>
+        </table>   
+
+        
+        </div>
+
+
+        
+        
+
+        <script src="cal.js"></script>
+
+        </div>
+
+
+
+ 
+        <tbody id="cal-dia">
+            <!-- Os dias serão renderizados via JS -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Div para adicionar texto -->
+<div class="cal-actions" id="cal-actions">
+    <button id="btn-adicionar" onclick="showAddModal()">Adicionar Recado</button>
+</div>
+
+<!-- Modal para editar o texto -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h3>Adicionar</h3>
+        <label for="dia-selecionado">Escolha o dia:</label>
+        <select id="dia-selecionado">
+            <!-- Os dias serão inseridos aqui pelo JS -->
+        </select>
+        <textarea id="input-texto" placeholder="Escreva o seu cardápio"></textarea>
+        <div class="modal-buttons">
+            <button onclick="saveText()">Salvar</button>
+            <button onclick="deleteText()">Excluir</button>
+            <button onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
